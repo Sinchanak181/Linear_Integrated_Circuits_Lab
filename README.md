@@ -27,3 +27,12 @@ To design a Common Source (CS) amplifier using 180nm NMOS technology in LTspice 
 - AC signal source  
 - Load capacitor (1 pF)  
 - Ground and connecting wires  
+---
+
+## CIRCUIT DIAGRAM :
+
+The Common Source amplifier circuit was designed in LTspice using 180nm NMOS technology.  
+The drain resistor RD is connected between VDD and drain terminal.  
+The input signal is applied at the gate terminal and output is taken from the drain.  
+A load capacitor of 1 pF is connected at the output node.
+![CS Amplifier Circuit](circuit.png)
