@@ -158,5 +158,12 @@ Observation:
 - Smaller W reduces ID and moves VDS closer to VDD.
 
 From simulation tuning, W = 2.5 µm provided the required drain current (≈ 0.33 mA) and correct biasing.
+### DC Transfer Characteristic (Vout vs Vin)
+
+The DC sweep was performed by varying input voltage from 0 V to 1.5 V.  
+The variation of output voltage with respect to input voltage is shown below.
+
+![DC Transfer Curve](dc_transfer.png)
+
 
 
