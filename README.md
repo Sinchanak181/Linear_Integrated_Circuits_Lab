@@ -236,9 +236,12 @@ From AC plot (with CL = 1 pF):
 
 - Midband gain ≈ 2.087
 - Gain in dB ≈ 6.39 dB
-- 3 dB bandwidth ≈ 88.43 MHz
-- Unity Gain Bandwidth (UGB) ≈ 100 MHz (approx)
-- Gain Bandwidth Product (GBP) ≈ 184.6 MHz
+- 3 dB bandwidth ≈ 89.65 MHz
+- Unity Gain Bandwidth (UGB) ≈ 150.23 MHz
+- GBP ≈ 2.087 × 89.65 MHz
+     ≈ 187 MHz (approx)
+Gain Bandwidth Product (GBP) ≈ 187 MHz (approx)
+
 ### AC Response Without Load Capacitor
 
 ![AC Without Load](ac_without_cl.png)
@@ -246,6 +249,7 @@ From AC plot (with CL = 1 pF):
 ### AC Response With Load Capacitor (CL = 1 pF)
 
 ![AC With Load](ac_with_cl.png)
+![AC Response With Load Capacitor](AC_With_CL_Final.png)
 
 
 
