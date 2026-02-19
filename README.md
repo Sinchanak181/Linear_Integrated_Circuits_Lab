@@ -164,6 +164,66 @@ The DC sweep was performed by varying input voltage from 0 V to 1.5 V.
 The variation of output voltage with respect to input voltage is shown below.
 
 ![DC Transfer Curve](dc_transfer.png)
+## TRANSIENT ANALYSIS
+
+Transient analysis was performed using a sinusoidal input signal:
+
+SINE(0.9 10m 1k)
+
+The input amplitude was kept small to observe linear amplification.
+
+### Observation
+
+- The output waveform is inverted with respect to the input.
+- A phase shift of approximately 180° was observed.
+- The amplifier operates in the linear region for small input signals.
+- For larger input amplitudes, distortion begins to appear.
+
+Transient analysis was performed using:
+
+.tran 5m
+
+A sinusoidal input was applied:
+SINE(0.9 10m 1k)
+
+### Input Waveform
+
+![Vin Waveform](vin_transient.png)
+
+### Output Waveform
+
+![Vout Waveform](vout_transient.png)
+
+### Observation
+...
+
+
+### Gain Calculation
+
+From transient waveform:
+
+Gain (Av) = Vout / Vin  
+
+Measured practical gain ≈ 2.087  
+
+Gain in dB:
+
+Av(dB) = 20 log(2.087)  
+
+Av ≈ 6.39 dB  
+
+The theoretical gain using:
+
+Av = gm × RD  
+
+was approximately 2.808  
+
+Theoretical gain in dB ≈ 8.94 dB  
+
+Thus, practical gain is slightly lower than theoretical gain due to non-ideal effects.
+### Transient Waveform
+
+![Transient Output](transient.png)
 
 
 
