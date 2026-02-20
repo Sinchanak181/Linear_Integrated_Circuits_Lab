@@ -34,7 +34,6 @@ To design a Common Source (CS) amplifier using 180nm NMOS technology in LTspice 
 The Common Source amplifier circuit was designed in LTspice using 180nm NMOS technology.  
 The drain resistor RD is connected between VDD and drain terminal.  
 The input signal is applied at the gate terminal and output is taken from the drain.  
-A load capacitor of 1 pF is connected at the output node.
 
 
 ![CS Amplifier Circuit](circuit.png)
@@ -57,8 +56,7 @@ Therefore, the Q-point is fixed such that VDS ≈ VDD/2 to allow maximum symmetr
 2. The Common Source amplifier circuit was constructed with:
    - VDD = 1.5 V  
    - Drain resistor RD ≈ 2.245 kΩ  
-   - NMOS transistor with L = 180 nm and W = 2.5 µm  
-   - Load capacitor CL = 1 pF  
+   - NMOS transistor with L = 180 nm and W = 2.5 µm    
 
 3. DC analysis was performed using the .op and .dc commands to determine the Q-point by setting VDS ≈ VDD/2.
 
@@ -240,7 +238,6 @@ From AC plot (with CL = 1 pF):
 - Unity Gain Bandwidth (UGB) ≈ 150.23 MHz
 - GBP ≈ 2.087 × 89.65 MHz
      ≈ 187 MHz (approx)
-Gain Bandwidth Product (GBP) ≈ 187 MHz (approx)
 
 ### AC Response Without Load Capacitor
 
