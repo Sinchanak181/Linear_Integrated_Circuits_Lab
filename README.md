@@ -178,6 +178,11 @@ A sine input of SINE(0.9 10m 1k) was applied at the gate terminal.
 
 ![Output Waveform](vout_transient.png)
 
+### Combined Input and Output Waveforms
+
+![Transient Combined Vin and Vout](Transient_Vin_Vout.png)
+
+
 ### Observation
 
 - Output waveform is inverted with respect to input (≈ 180° phase shift).
