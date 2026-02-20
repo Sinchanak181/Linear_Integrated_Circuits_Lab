@@ -325,29 +325,30 @@ Av(dB) = 20 log(2.0877)
 
 Av(dB) ≈ 6.39 dB  
 
-
 ### Theoretical Gain Calculation
 
-For a Common Source amplifier,
+For a Common Source amplifier:
 
-Av ≈ gm × RD  
+Av = gm × RD  
 
-From DC operating point:
+Where,
+gm = 2ID / (VGS − Vth)
 
+Using,
+ID = 0.334 mA  
+VGS = 0.9 V  
+Vth = 0.366 V  
+
+gm = (2 × 0.334 × 10⁻³) / 0.534  
 gm ≈ 1.25 mS  
-RD = 2.245 kΩ  
 
 Therefore,
-
 Av = (1.25 × 10⁻³) × (2245)  
-
-Av ≈ 2.808  
+Av ≈ 2.088  
 
 Gain in dB:
-
-Av(dB) = 20 log(2.808)  
-
-Av(dB) ≈ 8.94 dB  
+Av(dB) = 20 log(2.088)  
+Av(dB) ≈ 6.39 dB
 
 Thus, the practical gain (2.0877) is slightly lower than theoretical gain (2.808) due to channel length modulation and other non-ideal effects.
 
@@ -405,23 +406,18 @@ From AC plot (with CL = 1 pF):
 
 1. The Common Source (CS) amplifier was successfully designed using 180 nm NMOS technology under the given power constraint of 0.5 mW.
 
-2. From DC analysis, the Q-point was properly fixed at  
-   **VDS ≈ 0.75 V (≈ VDD/2)**  
-   ensuring maximum symmetrical output swing.
+2. The Q-point was fixed at VDS ≈ VDD/2 (≈ 0.75 V), ensuring maximum symmetrical output swing.
 
-3. The calculated drain current (0.334 mA) closely matched the simulated value (≈ 0.33 mA), confirming correct bias design.
+3. The calculated drain current (0.334 mA) closely matched the simulated value (≈ 0.33 mA), validating the DC design.
 
-4. Transient analysis verified that the amplifier provides voltage amplification with a **180° phase inversion**, which is the fundamental characteristic of a CS amplifier.
+4. Transient analysis confirmed voltage amplification with 180° phase inversion.
 
-5. The practical voltage gain (≈ 2.087 or 6.39 dB) was slightly lower than the theoretical gain due to non-ideal device parameters and parasitic capacitances.
+5. The practical gain (≈ 2.087 or 6.39 dB) was slightly lower than theoretical gain due to channel length modulation and non-ideal device effects.
 
-6. AC analysis showed a flat midband gain region followed by gain roll-off at higher frequencies.
+6. AC analysis showed a midband gain of ≈ 2.087 with 3 dB bandwidth ≈ 89.65 MHz.
 
-7. The 3 dB bandwidth was approximately **89.65 MHz**, and the Unity Gain Bandwidth (UGB) was around **150 MHz**.
+7. The Unity Gain Bandwidth (UGB) was ≈ 150 MHz.
 
-8. It was observed that adding a load capacitor (CL = 1 pF) reduced the bandwidth while maintaining nearly the same midband gain.
+8. Adding load capacitance (1 pF) reduced bandwidth while maintaining nearly the same midband gain.
 
-9. Overall, the simulated results closely agree with theoretical expectations, validating the design methodology.
-
-
- 
+9. Overall, simulation results closely agree with theoretical expectations, validating the design methodology.
