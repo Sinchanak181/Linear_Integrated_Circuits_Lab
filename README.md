@@ -546,6 +546,27 @@ Vout ≈ 0.58 V
 
 ---
 
+### 4️⃣ DC Width Tuning (Based on Simulation)
+
+Initial calculated widths:
+
+Wn(initial) = 1.8 µm  
+Wp(initial) = 4.3 µm  
+
+After running DC operating point analysis in LTspice, the output voltage was adjusted to obtain proper saturation and better bias point.
+
+Final tuned widths:
+
+Wn(tuned) = ______ µm  
+Wp(tuned) = ______ µm  
+
+For these tuned values:
+
+ID = ______ mA  
+Vout = ______ V  
+
+The tuning was required because practical device behavior (including channel length modulation and model parameters from tsmc018.lib) slightly shifts the DC operating point from theoretical calculation.
+
 ### 5️⃣ Saturation Condition Validation
 
 For NMOS:
