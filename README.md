@@ -426,5 +426,212 @@ From AC plot (with CL = 1 pF):
 9. Overall, simulation results closely agree with theoretical expectations, validating the design methodology.
 
 
+# 🔷 Circuit 2 – Common Source Amplifier with Diode-Connected PMOS Load
 
+---
+
+## 🎯 Aim
+
+To design and analyze a Common Source (CS) amplifier using a diode-connected PMOS load in 180nm CMOS technology and evaluate its DC, Transient and AC performance.
+
+---
+
+## 📋 Given Specifications
+
+| Parameter | Value |
+|------------|--------|
+| VDD | 1.5 V |
+| Power Constraint | ≤ 0.5 mW |
+| Channel Length (L) | 180 nm |
+| Given VGS | 0.9 V |
+
+---
+
+## 🔌 Circuit Diagram
+
+(Insert LTspice schematic screenshot here)
+
+---
+
+# 📘 DC Analysis
+
+### 1️⃣ Drain Current Calculation
+
+Power constraint:
+
+P = VDD × ID  
+
+0.5 mW = 1.5 × ID  
+
+ID = 0.333 mA  
+
+---
+
+### 2️⃣ NMOS (M1) Design
+
+Given:
+
+VGS = 0.9 V  
+Vthn = 0.366 V  
+
+Overdrive voltage:
+
+VOV = VGS − Vth  
+
+VOV = 0.9 − 0.366  
+
+VOV = 0.534 V  
+
+Using drain current equation:
+
+ID = (1/2) kn' (W/L) (VOV)²  
+
+kn' = 2.30 × 10⁻⁴ A/V²  
+L = 180 nm  
+
+Solving for W:
+
+Wn ≈ 1.8 µm  
+
+---
+
+### 3️⃣ PMOS (M2) – Diode Connected Load
+
+For PMOS:
+
+ID = (1/2) kp' (Wp/L) (VSG − |Vthp|)²  
+
+Given:
+
+ID = 0.333 mA  
+kp' = 9.73 × 10⁻⁵ A/V²  
+L = 180 nm  
+VOV = 0.534 V  
+
+Since,
+
+VOV = VSG − |Vthp|
+
+Substituting:
+
+0.333 × 10⁻³  
+= (1/2)(9.73 × 10⁻⁵)(Wp / 180×10⁻⁹)(0.534)²  
+
+(0.534)² = 0.285  
+
+0.333 × 10⁻³  
+= 1.386 × 10⁻⁵ (Wp / 180×10⁻⁹)
+
+Solving:
+
+Wp ≈ 4.3 µm
+
+### 4️⃣ Output Voltage Calculation
+
+For diode-connected PMOS:
+
+VSG = VOV + |Vthp|  
+
+VSG = 0.534 + 0.39  
+
+VSG ≈ 0.924 V  
+
+Output voltage:
+
+Vout = VDD − VSG  
+
+Vout = 1.5 − 0.924  
+
+Vout ≈ 0.58 V  
+
+---
+
+### 5️⃣ Saturation Condition Validation
+
+For NMOS:
+
+VGS > Vth  
+0.9 V > 0.366 V ✅  
+
+VDS ≥ VOV  
+
+For PMOS:
+
+VSG > |Vthp|  
+0.924 V > 0.39 V ✅  
+
+Hence both transistors operate in saturation region.
+
+---
+
+# 📊 Transient Analysis
+
+(Insert transient waveform screenshot here)
+
+Small signal gain:
+
+Av = Vout(pp) / Vin(pp)
+
+Av = ______ V/V  
+
+Output waveform is inverted (180° phase shift), confirming common source operation.
+
+---
+
+# 📈 AC Analysis
+
+(Insert AC Bode plot screenshot here)
+
+From Bode plot:
+
+Midband Gain = ______ dB  
+3 dB Bandwidth = ______ Hz  
+
+Gain Bandwidth Product:
+
+GBP = Av × BW  
+
+GBP = ______
+
+---
+
+# 🔎 Comparison with Circuit 1
+
+| Parameter | Circuit 1 (Current Source Load) | Circuit 2 (Diode Load) |
+|------------|----------------------------------|--------------------------|
+| Gain | Higher | Lower |
+| Output Resistance | High | Low |
+| Bandwidth | Lower | Higher |
+| Output Swing | Better | Limited |
+
+Reason:
+
+• Diode-connected PMOS behaves like a resistive load.  
+• Output resistance reduces.  
+• Voltage gain decreases.  
+• Due to gain–bandwidth tradeoff, bandwidth improves.
+
+---
+
+# 📌 Effect of Channel Length Modulation (CLM)
+
+In practical MOSFETs, drain current slightly increases with VDS due to channel length modulation.
+
+This introduces finite output resistance (ro), reducing practical gain compared to ideal theoretical value.
+
+Actual gain:
+
+Av = -gm (ro || RD)
+
+Hence simulated gain is slightly lower than theoretical gain.
+
+---
+
+# 🧠 Inference
+
+The diode-connected PMOS load provides stable biasing but lower voltage gain compared to current source load.
+
+The circuit satisfies saturation conditions and meets power constraint.
+
+Compared to Circuit 1, it offers improved bandwidth but reduced gain.
     
