@@ -379,13 +379,13 @@ From AC plot (with CL = 1 pF):
 
 ### AC Response Without Load Capacitor
 
-![AC Without Load](ac_without_cl.png)
+![AC Without Load](../ac_without_cl.png)
 
 ### AC Response With Load Capacitor (CL = 1 pF)
 
-![AC With Load](ac_with_cl.png)
+![AC With Load](../ac_with_cl.png)
 
-![AC Response With Load Capacitor](AC_With_CL_Final.png)
+![AC Response With Load Capacitor](../AC_With_CL_Final.png)
 
 ----
 
@@ -449,7 +449,7 @@ To design and analyze a Common Source (CS) amplifier using a diode-connected PMO
 
 ##  Circuit Diagram
 
-![CS Amplifier Circuit](circuitb.png)
+![CS Amplifier Circuit](../circuitb.png)
 ---
 
 # DC Analysis
@@ -566,7 +566,7 @@ Vout = 0.54 V
 
 The tuning was required because practical device behavior (including channel length modulation and model parameters from tsmc018.lib) slightly shifts the DC operating point from theoretical calculation.
 
-![CS Amplifier Circuit](dccircuitb.png)
+![CS Amplifier Circuit](../dccircuitb.png)
 
 ###  Saturation Condition Validation
 
@@ -590,11 +590,11 @@ Hence both transistors operate in saturation region.
 
 INPUT WAVEFORM
 
-![CS Amplifier Circuit](tacircuitb1.png)
+![CS Amplifier Circuit](../tacircuitb1.png)
 
 OUTPUT WAVEFORM
 
-![CS Amplifier Circuit](tacircuitb2.png)
+![CS Amplifier Circuit](../tacircuitb2.png)
 
 Small signal gain:
 
@@ -612,7 +612,7 @@ Output waveform is inverted (180° phase shift), confirming common source operat
 
 # AC Analysis
 
-![CS Amplifier Circuit](accircuitb.png)
+![CS Amplifier Circuit](../accircuitb.png)
 
 From Bode plot:
 
@@ -671,7 +671,7 @@ To design and analyze a Common Source (CS) amplifier using a PMOS current source
 
 ##  Circuit Diagram
 
-![CS Amplifier Circuit](circuitc.png)
+![CS Amplifier Circuit](../circuitc.png)
 
 ---
 
@@ -779,7 +779,7 @@ Wp(tuned) = 55.16  µm
 ID = 0.337 mA  
 Vout = 0.22 V
 
-![CS Amplifier Circuit](dccircuitc.png)
+![CS Amplifier Circuit](../dccircuitc.png)
 
 ---
 
@@ -791,7 +791,7 @@ INPUT WAVEFORM
 
 OUTPUT WAVEFORM 
 
-![CS Amplifier Circuit](tbcircuitc2.png)
+![CS Amplifier Circuit](../tbcircuitc2.png)
 
 Gain:
 
@@ -806,7 +806,7 @@ Output shows 180° phase shift.
 
 #  AC Analysis
 
-![CS Amplifier Circuit](accircuitc.png)
+![CS Amplifier Circuit](../accircuitc.png)
 
 Midband Gain = -25.08 dB  
 3 dB Bandwidth = 3.86 GHz  
