@@ -24,6 +24,14 @@
 | Experiment 2 | Amplifier Configurations | [Open](./Experiment_2) |
 | Experiment 3 | Virtual Lab Experiment | [Open](./Experiment_3) |
 
+
+## Quick Navigation
+
+🔬 [Experiment 1 – CS Amplifier Analysis](Experiment_1)
+
+⚡ [Experiment 2 – Amplifier Configurations](Experiment_2)
+
+🧪 [Experiment 3 – Virtual Lab Experiment](Experiment_3)
 ---
 
 ## Software Used
