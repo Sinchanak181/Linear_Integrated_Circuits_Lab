@@ -19,7 +19,10 @@ To design and analyze a Common Source (CS) amplifier with PMOS active load using
 ## Common Source Amplifier with PMOS Active Load
 ### Circuit Diagram
 
-![Circuit 1](Circuit1_Schematic.png)
+![Circuit1
+(https://raw.githubusercontent.com/Sinchanak181/LIC_Amplifier_Configurations_Exp2/main/Circuit1_Schematic.png)
+
+
 ### Circuit Description
 
 This circuit is a **Common Source (CS) amplifier with PMOS active load**.
@@ -103,7 +106,7 @@ RS ≈ 598.8 Ω
 
 The above calculations ensure proper DC biasing and saturation region operation.
 ## DC Simulation Results
-![Circuit 1 DC Operating Point](Circuit1_DC_OperatingPoint.png.jpg)
+![Circuit1_DC](https://raw.githubusercontent.com/Sinchanak181/LIC_Amplifier_Configurations_Exp2/main/Circuit1_DC_OperatingPoint.png)
 
 ### Observations
 - ID(M1) ≈ 0.335 mA  
@@ -140,19 +143,19 @@ Transient command used:
 .tran 5m
 ### Input Waveform (Vin)
 
-![Circuit 1 Input](Circuit1_Vin.png.jpg)
+![Circuit1_Vout](https://raw.githubusercontent.com/Sinchanak181/LIC_Amplifier_Configurations_Exp2/main/Circuit1_Vin.png.jpg)
 
 ---
 
 ### Output Waveform (Vout)
 
-![Circuit 1 Output](Circuit1_Vout.png.jpg)
+![Circuit1_Vin](https://raw.githubusercontent.com/Sinchanak181/LIC_Amplifier_Configurations_Exp2/main/Circuit1_Vout.png.jpg)
 
 ---
 
 ### Combined Input and Output Waveforms
 
-![Circuit 1 Combined Waveform](Circuit1_Vin_Vout.png.jpg)
+![Circuit1_Vout](https://raw.githubusercontent.com/Sinchanak181/LIC_Amplifier_Configurations_Exp2/main/Circuit1_Vin_Vout.png.jpg)
 
 ---
 
@@ -253,7 +256,7 @@ AC simulation command used:
 The frequency response was obtained to extract midband gain, 3dB bandwidth, and high-frequency cutoff.
 ### AC Frequency Response
 
-![Circuit 1 AC Response](Circuit1_AC_Response.png)
+![Circuit1_AC](https://raw.githubusercontent.com/Sinchanak181/LIC_Amplifier_Configurations_Exp2/main/Circuit1_AC_Response.png)
 
 ### Extracted Parameters
 
@@ -437,7 +440,7 @@ ID = 0.333 mA
 
 ## 🔷 DC Operating Point Screenshot
 
-![Circuit 2 DC](circuit2_dc.png)
+![Circuit2_DC](https://raw.githubusercontent.com/Sinchanak181/LIC_Amplifier_Configurations_Exp2/main/circuit2_dc.png)
 
 ## 🔷 DC Width Tuning 
 
@@ -512,19 +515,19 @@ Frequency = 1 kHz
 
 ## 🔷 Input Waveform (Vin)
 
-![Circuit 2 Input](circuit2_vin.png)
+![Circuit2_Vin](https://raw.githubusercontent.com/Sinchanak181/LIC_Amplifier_Configurations_Exp2/main/circuit2_vin.png)
 
 ---
 
 ## 🔷 Output Waveform (Vout)
 
-![Circuit 2 Output](circuit2_vout.png)
+![Circuit2_Vin](https://raw.githubusercontent.com/Sinchanak181/LIC_Amplifier_Configurations_Exp2/main/circuit2_vout.png)
 
 ---
 
 ## 🔷 Combined Input & Output Waveforms
 
-![Circuit 2 Combined](circuit2_combined.png)
+![Circuit2_Vin](https://raw.githubusercontent.com/Sinchanak181/LIC_Amplifier_Configurations_Exp2/main/circuit2_combined.png)
 
 ---
 
@@ -635,7 +638,7 @@ This analysis is performed to determine:
 
 ## 🔷 AC Frequency Response
 
-![Circuit 2 AC Response](circuit2_ac.png)
+![Circuit2_AC](https://raw.githubusercontent.com/Sinchanak181/LIC_Amplifier_Configurations_Exp2/main/circuit2_ac.png)
 
 ---
 
@@ -673,7 +676,7 @@ GBP = 557.13 MHz
 
 ## 🔷 Circuit 3 Schematic
 
-![Circuit 3 Schematic](circuit3.png)
+![Circuit3](https://raw.githubusercontent.com/Sinchanak181/LIC_Amplifier_Configurations_Exp2/main/circuit3.png)
 
 
 ## 🔷 Design Specifications
@@ -831,7 +834,7 @@ ID = 0.333 mA
 
 ## 🔷 DC Operating Point
 
-![Circuit 3 DC](circuit3_dc.png)
+![Circuit3](https://raw.githubusercontent.com/Sinchanak181/LIC_Amplifier_Configurations_Exp2/main/circuit3_dc.png)
 
 ## 🔷 DC Width Tuning (Post Simulation Adjustment)
 
@@ -891,19 +894,19 @@ Frequency = 1 kHz
 
 ## 🔷 Input Waveform (Vin)
 
-![Circuit 3 Input](circuit3_vin.png)
+![Circuit3](https://raw.githubusercontent.com/Sinchanak181/LIC_Amplifier_Configurations_Exp2/main/circuit3_vin.png)
 
 ---
 
 ## 🔷 Output Waveform (Vout)
 
-![Circuit 3 Output](circuit3_vout.png)
+![Circuit3](https://raw.githubusercontent.com/Sinchanak181/LIC_Amplifier_Configurations_Exp2/main/circuit3_vout.png)
 
 ---
 
 ## 🔷 Combined Input & Output
 
-![Circuit 3 Combined](circuit3_combined.png)
+![Circuit3_Combined](https://raw.githubusercontent.com/Sinchanak181/LIC_Amplifier_Configurations_Exp2/main/circuit3_combined.png)
 
 ## 🔷 Practical Gain (From Transient Analysis)
 
@@ -931,7 +934,7 @@ AC command used:
 ---
 ## 🔷 AC Response
 
-![Circuit 3 AC](circuit3_ac.png)
+![Circuit3_Combined](https://raw.githubusercontent.com/Sinchanak181/LIC_Amplifier_Configurations_Exp2/main/circuit3_ac.png)
 
 ---
 
