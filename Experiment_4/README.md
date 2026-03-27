@@ -46,7 +46,7 @@ gm = (2ID) / Vov
 ---
 ## 🔷 Circuit Diagram
 
-![Circuit Diagram](circuit1.png)
+![Circuit Diagram](circuit1.png.jpng)
 
 ---
 ## 📌 Design Calculations
