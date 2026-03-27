@@ -432,16 +432,16 @@ Beyond this limit:
 Thus, proper input range selection is essential for accurate amplification.
 ## 🔷 Gain Calculation (From Transient Analysis)
 
-The output waveform is observed to be amplified and inverted with respect to the input.
+The output waveform is amplified and inverted with respect to the input signal.
 
-### 🔹 Input Signal Details
+### 🔹 Input Signal Parameters
 
 | Parameter | Value |
 |----------|------|
-| Signal type | Sine wave |
+| Type | Sine wave |
 | Frequency | 1 kHz |
-| Differential amplitude | 50 mV |
-| DC offset | 0 V |
+| Amplitude | 50 mV (differential) |
+| DC Offset | 0 V |
 
 ---
 
@@ -449,85 +449,70 @@ The output waveform is observed to be amplified and inverted with respect to the
 
 | Quantity | Value |
 |----------|------|
-| Vin(p-p) | 100 mV |
-| Vout(p-p) | 604 mV |
+| Vin (p-p) | 100 mV |
+| Vout (p-p) | 604 mV |
 
 ---
 
 ### 🔹 Voltage Gain
 
-\[
-A_v = \frac{V_{out(p-p)}}{V_{in(p-p)}}
-\]
+Av = Vout(p-p) / Vin(p-p)
 
-\[
-A_v = \frac{604 \times 10^{-3}}{100 \times 10^{-3}} = 6.04
-\]
+Av = 604 mV / 100 mV  
+
+Av = 6.04 V/V
 
 ---
 
 ### 🔹 Gain in dB
 
-\[
-A_v(dB) = 20 \log_{10}(6.04)
-\]
+Gain(dB) = 20 log10(Av)
 
-\[
-A_v(dB) \approx 15.62 \, dB
-\]
+Gain(dB) = 20 log10(6.04)
+
+Gain ≈ 15.62 dB
 
 ---
 
 ## 🔷 Theoretical Gain Estimation
 
-To estimate gain analytically, small-signal parameters are considered.
-
 ### 🔹 Output Resistance
 
-\[
-r_o = \frac{1}{\lambda I_D}
-\]
+ro = 1 / (λ × ID)
 
-Given:
+Given:  
+λ = 0.1 V⁻¹  
+ID = 0.5 mA  
 
-- λ = 0.1 V⁻¹  
-- ID = 0.5 mA  
+ro = 1 / (0.1 × 0.5 × 10⁻³)
 
-\[
-r_o = \frac{1}{0.1 \times 0.5 \times 10^{-3}} = 20\,k\Omega
-\]
+ro = 20 kΩ
 
 ---
 
 ### 🔹 Effective Output Resistance
 
-\[
-r_{out} = r_{o1} \parallel r_{o2}
-\]
+ro(eff) = ro1 || ro2  
 
-\[
-r_{out} = 20k \parallel 20k = 10k\Omega
-\]
+ro(eff) = 20k || 20k  
+
+ro(eff) = 10 kΩ
 
 ---
 
 ### 🔹 Transconductance
 
-\[
-g_m = \frac{2I_D}{V_{ov}}
-\]
+gm = 2ID / Vov  
 
-(Use your Vov value here)
+(Use your Vov value)
 
 ---
 
 ### 🔹 Theoretical Gain
 
-\[
-A_v = g_m \cdot r_{out}
-\]
+Av = gm × ro(eff)
 
-✔ This gives an approximate value since ideal conditions are assumed.
+NOTE: This is an approximate value due to ideal assumptions.
 
 ---
 
@@ -535,61 +520,55 @@ A_v = g_m \cdot r_{out}
 
 ![AC Response](your_ac_plot.png)
 
-The AC analysis provides the frequency response of the amplifier.
+The frequency response of the amplifier is obtained using AC analysis.
 
 ---
 
-### 🔹 Key Parameters from Bode Plot
+### 🔹 Extracted Parameters
 
 | Parameter | Value |
 |----------|------|
-| Midband Gain | ≈ 9.87 dB |
-| -3 dB Gain | ≈ 6.87 dB |
-| Lower Cutoff (fL) | ~ 0 Hz |
-| Upper Cutoff (fH) | 4.819 MHz |
+| Midband Gain | 9.87 dB |
+| 3 dB Gain | 6.87 dB |
+| Lower Cutoff Frequency | ~ 0 Hz |
+| Upper Cutoff Frequency | 4.819 MHz |
 
 ---
 
 ### 🔹 Bandwidth
 
-\[
-BW = f_H - f_L
-\]
+Bandwidth (BW) = fH − fL  
 
-\[
-BW = 4.819 \, MHz
-\]
+BW = 4.819 MHz
 
 ---
 
-## 🔷 Observation on Frequency Response
+## 🔷 Observations
 
-- Gain remains constant in midband region  
-- Gain decreases at higher frequencies  
+- Gain is constant in midband region  
+- Gain decreases at high frequencies  
 - Roll-off occurs due to parasitic capacitances  
-- Bandwidth is mainly limited by output node capacitance  
+- Bandwidth depends on output node capacitance  
 
 ---
 
-## 🔷 Reason for Difference (Theoretical vs Practical)
+## 🔷 Reason for Variation
 
-The difference between calculated and simulated gain arises due to:
+The difference between theoretical and simulated results is due to:
 
-- Channel length modulation (finite output resistance)
-- Mobility degradation in short-channel devices  
-- Parasitic capacitances in MOSFET model  
-- Non-ideal current distribution  
+- Channel length modulation  
+- Mobility degradation  
+- Parasitic capacitances  
+- Non-ideal MOSFET behavior  
 - Approximation in hand calculations  
-
-✔ Simulation includes all second-order effects, hence more accurate.
 
 ---
 
 ## 🔷 Inference
 
-The differential amplifier using resistive load has been successfully designed and analyzed.
+The differential amplifier with resistive load is successfully designed and analyzed.
 
-### 🔹 Key Outcomes
+### 🔹 Key Points
 
 - Power constraint is satisfied  
 - Tail current ensures proper biasing  
@@ -603,18 +582,17 @@ The differential amplifier using resistive load has been successfully designed a
 
 | Parameter | Value |
 |----------|------|
-| Gain (Simulated) | ~6.04 V/V |
-| Gain (dB) | ~15.62 dB |
-| Bandwidth | ~4.8 MHz |
+| Gain (V/V) | 6.04 |
+| Gain (dB) | 15.62 dB |
+| Bandwidth | 4.819 MHz |
 
 ---
 
-### 🔹 Final Understanding
+### 🔹 Final Conclusion
 
-- For small differential input → circuit behaves linearly  
+- For small input → amplifier behaves linearly  
 - For large input → distortion occurs  
 - Gain is limited by output resistance  
-- Bandwidth is affected by parasitic capacitances  
+- Bandwidth is affected by parasitics  
 
-✔ Thus, the amplifier meets design requirements and demonstrates expected behavior.
-
+Thus, the circuit meets the design requirements and shows expected behavior.
