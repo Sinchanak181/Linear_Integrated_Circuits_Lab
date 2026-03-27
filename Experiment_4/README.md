@@ -213,6 +213,7 @@ By varying W, the drain current was controlled such that the desired source volt
 | Initial calculated width | ≈ 17.5 µm |
 | Final tuned width | ≈ 28.5 µm |
 
+![DC Analysis Screenshot1](your_dc_image1.png)
 ---
 
 ### 🔸 Reason for Deviation
