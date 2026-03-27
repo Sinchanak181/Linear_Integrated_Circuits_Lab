@@ -400,10 +400,13 @@ Vid = 500 mV (> 0.68 V)
 
 | Parameter | Linear Region | Non-Linear Region |
 |----------|-------------|------------------|
-| Input (Vid) | Small | Large |
-| Output | Sinusoidal | Distorted |
-| Gain | Constant | Reduced |
-| Operation | Both active | One cuts off |
+| MOSFET Operation            | Both in saturation           | One in cutoff, one active    |
+| Current Distribution        | Equal sharing                | Unequal (one dominates)      |
+| Output Waveform             | Sinusoidal                   | Distorted / non-linear       |
+| Linearity                   | Linear region               | Non-linear region            |
+| Gain Behavior               | Constant                    | Varies (non-linear gain)     |
+| Symmetry                    | Symmetrical                 | Asymmetrical                 |
+| Signal Quality              | High (clean output)         | Poor (clipping/distortion)   |
 
 ---
 
