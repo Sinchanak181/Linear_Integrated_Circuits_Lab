@@ -522,7 +522,7 @@ NOTE: This is an approximate value due to ideal assumptions.
 
 ## 🔷 AC Analysis
 
-![AC Response](your_ac_plot.png)
+![AC Response](your_ac_plot.png.jpeg)
 
 The frequency response of the amplifier is obtained using AC analysis.
 
