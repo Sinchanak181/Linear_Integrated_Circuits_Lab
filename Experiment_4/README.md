@@ -46,7 +46,7 @@ gm = (2ID) / Vov
 ---
 ## 🔷 Circuit Diagram
 
-![Circuit Diagram](circuit1.png.jpng)
+![Circuit Diagram](circuit1.png.jpeg)
 
 ---
 ## 📌 Design Calculations
@@ -213,7 +213,7 @@ By varying W, the drain current was controlled such that the desired source volt
 | Initial calculated width | ≈ 17.5 µm |
 | Final tuned width | ≈ 28.5 µm |
 
-![DC Analysis Screenshot1](your_dc_image1.png)
+![DC Analysis Screenshot1](your_dc_image1.png.jpeg)
 ---
 
 ### 🔸 Reason for Deviation
@@ -229,7 +229,7 @@ The difference between theoretical and simulated width occurs due to:
 Hence, width tuning is necessary to meet exact design specifications in simulation.
 ## 🔷 DC Analysis
 
-![DC Analysis Screenshot](your_dc_image.png)
+![DC Analysis Screenshot](your_dc_image.png.jpeg)
 
 The DC operating point analysis is performed to verify whether all transistors are properly biased in saturation.
 
@@ -365,7 +365,7 @@ Transient analysis is performed to verify linearity of the amplifier under diffe
 
 ### 🔹 Case 1: Small Signal Input (Linear Region)
 
-![Transient Linear](your_linear_image.png)
+![Transient Linear](your_linear_image.png.jpeg)
 
 Input applied:
 
@@ -382,7 +382,7 @@ Vid = 50 mV (< 0.68 V)
 
 ### 🔹 Case 2: Large Signal Input (Non-Linear Region)
 
-![Transient Nonlinear](your_nonlinear_image.png)
+![Transient Nonlinear](your_nonlinear_image.png.jpeg)
 
 Input applied:
 
