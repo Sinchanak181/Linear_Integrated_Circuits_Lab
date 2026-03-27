@@ -19,10 +19,11 @@
 ## Experiments
 
 | Experiment | Title | Link |
-|-----------|------|------|
+|------------|------|------|
 | Experiment 1 | DC, Transient and AC Analysis of CS Amplifier | [Open](./Experiment_1) |
 | Experiment 2 | Amplifier Configurations | [Open](./Experiment_2) |
 | Experiment 3 | Virtual Lab Experiment | [Open](./Experiment_3) |
+| Experiment 4 | Differential Amplifier Analysis | [Open](./Experiment_4) |
 
 ---
 
