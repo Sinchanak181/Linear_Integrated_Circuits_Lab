@@ -368,7 +368,7 @@ Transient analysis is performed to verify linearity of the amplifier under diffe
 
 Input applied:
 
-Vid = 100 mV (< 0.68 V)
+Vid = 50 mV (< 0.68 V)
 
 #### Observation:
 
@@ -385,7 +385,7 @@ Vid = 100 mV (< 0.68 V)
 
 Input applied:
 
-Vid = 600 mV (> 0.68 V)
+Vid = 500 mV (> 0.68 V)
 
 #### Observation:
 
