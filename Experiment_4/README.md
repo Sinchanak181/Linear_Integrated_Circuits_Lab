@@ -1124,7 +1124,7 @@ The simulated gain is lower than theoretical due to:
 
 ## AC Analysis
 
-![AC Response1](your_ac_plot.png1)
+![AC Response1](your_ac_plot.png1.jfif)
 
 ### Input Conditions
 
