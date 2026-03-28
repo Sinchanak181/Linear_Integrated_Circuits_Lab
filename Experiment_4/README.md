@@ -1156,6 +1156,159 @@ Vout = V(out1) − V(out2)
 - Differential amplifier works correctly  
 - Proper biasing achieved  
 - Linear amplification for small signals  
-- Practical gain < theoretical due to non-ideal effects  
+- Practical gain < theoretical due to non-ideal effects
 
+  ## Circuit 3: CMOS Differential Amplifier with PMOS Active Load
+
+### Working Principle
+
+The circuit consists of an NMOS differential pair (M1, M2) with a tail current source (M5).  
+PMOS transistors (M3, M4) are used as active loads.
+
+When a differential input is applied:
+
+Vid = Vin1 − Vin2  
+
+- If Vin1 > Vin2 → M1 conducts more current  
+- If Vin2 > Vin1 → M2 conducts more current  
+- The PMOS load converts current variation into output voltage  
+
+---
+
+### Given Parameters
+
+| Parameter | Value |
+|----------|------|
+| Technology | TSMC 180 nm |
+| VDD | +0.9 V |
+| VSS | −0.9 V |
+| Power constraint | 1.8 mW |
+| Channel length (L) | 480 nm |
+| Vin,CM | 0 V |
+| Vout,CM | 0 V |
+| Tail voltage (Vp) | −0.7 V |
+| Threshold voltage (Vt) | ≈ 0.36 V |
+
+---
+
+### Power Constraint
+
+Total supply:
+
+VDD − VSS = 0.9 − (−0.9) = 1.8 V  
+
+Power limit:
+
+P ≤ 1.8 mW  
+
+So,
+
+Iss ≤ 1 mA  
+
+Chosen:
+
+Iss = 1 mA  
+
+---
+
+### Drain Current Calculation
+
+For balanced condition:
+
+Id1 = Id2 = Iss / 2  
+
+Id1 = Id2 = 1mA / 2 = 0.5 mA  
+
+---
+
+### Bias Calculation (NMOS Pair)
+
+Given:
+
+Vs = −0.7 V  
+Vg = 0 V  
+
+Vgs = Vg − Vs = 0 − (−0.7) = 0.7 V  
+
+Overdrive voltage:
+
+Vov = Vgs − Vt  
+Vov = 0.7 − 0.36 = 0.34 V  
+
+Drain voltage:
+
+Vd = 0 V  
+
+Vds = Vd − Vs = 0 − (−0.7) = 0.7 V  
+
+Condition:
+
+Vds > Vov → 0.7 > 0.34 ✔  
+
+Thus, M1 and M2 operate in saturation.
+
+---
+
+### NMOS Current Source (M5)
+
+Source connected to:
+
+Vs = −0.9 V  
+
+Drain at:
+
+Vd = −0.7 V  
+
+Vds = Vd − Vs = (−0.7) − (−0.9) = 0.2 V  
+
+Choose:
+
+Vov ≈ 0.2 V  
+
+Vgs = Vt + Vov  
+Vgs = 0.36 + 0.2 = 0.56 V  
+
+Gate voltage:
+
+Vg = Vs + Vgs  
+Vg = −0.9 + 0.56 = −0.34 V  
+
+Condition:
+
+Vds ≥ Vov → 0.2 ≥ 0.2 ✔  
+
+Thus, M5 operates at edge of saturation.
+
+---
+
+### PMOS Active Load (M3, M4)
+
+Source connected to:
+
+Vs = 0.9 V  
+
+Assume:
+
+|Vtp| ≈ 0.39 V  
+Vov(p) ≈ 0.25 V  
+
+Vsg = |Vtp| + Vov  
+Vsg = 0.39 + 0.25 = 0.64 V  
+
+Gate voltage:
+
+Vg = Vs − Vsg  
+Vg = 0.9 − 0.64 = 0.26 V  
+
+Thus,
+
+Vb ≈ 0.26 V  
+
+Condition:
+
+Vsd > Vov ✔  
+
+Hence, M3 and M4 operate in saturation.
 ✔ Design satisfies given specifications
+
+
