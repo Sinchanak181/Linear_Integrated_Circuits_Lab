@@ -998,7 +998,7 @@ Vid(max) = **0.5 V**
 
 Input applied:
 
-Vid = 100 mV (< 0.34 V)
+Vid = 50 mV (< 0.34 V)
 
 ![Linear Output](your_linear_waveform.png)
 
@@ -1012,7 +1012,7 @@ Vid = 100 mV (< 0.34 V)
 
 Input applied:
 
-Vid = 600 mV (> 0.34 V)
+Vid = 400 mV (> 0.34 V)
 
 ![Nonlinear Output](your_nonlinear_waveform.png)
 
@@ -1124,6 +1124,8 @@ The simulated gain is lower than theoretical due to:
 
 ## AC Analysis
 
+![AC Response1](your_ac_plot.png1)
+
 ### Input Conditions
 
 - Vin1 = +0.5 AC  
@@ -1174,6 +1176,9 @@ Vid = Vin1 − Vin2
 - The PMOS load converts current variation into output voltage  
 
 ---
+##  Circuit Diagram
+
+![Circuit 3](your_circuit3.png)
 
 ### Given Parameters
 
@@ -1309,6 +1314,7 @@ Condition:
 Vsd > Vov ✔  
 
 Hence, M3 and M4 operate in saturation.
+
 ✔ Design satisfies given specifications
 
 
