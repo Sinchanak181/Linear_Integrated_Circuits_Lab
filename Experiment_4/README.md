@@ -600,3 +600,604 @@ The differential amplifier with resistive load is successfully designed and anal
 - Bandwidth is affected by parasitics  
 
 Thus, the circuit meets the design requirements and shows expected behavior.
+
+# 🔷 Circuit 2: Differential Amplifier with PMOS Active Load
+
+---
+
+## 🔶 Working Principle
+
+This circuit uses:
+
+- NMOS (M1, M2) → differential pair  
+- PMOS (M3, M4) → active load  
+- NMOS (M5) → tail current source  
+
+When a differential input is applied:
+
+- Tail current splits between M1 and M2  
+- PMOS load converts current variation into voltage  
+- Output is taken from drains of M1 and M2  
+
+✔ Active load increases output resistance → higher gain  
+
+---
+
+## 🔶 Circuit Diagram
+
+![Circuit 2](your_circuit2.png)
+
+---
+
+## 🔶 Design Parameters
+
+| Parameter | Value |
+|----------|------|
+| Technology | 180 nm |
+| VDD | +0.9 V |
+| VSS | -0.9 V |
+| Power Limit | 1.8 mW |
+| Channel Length (L) | 480 nm |
+| Vcm (input) | 0 V |
+| Vout (target) | 0 V |
+| Tail Voltage (Vp) | -0.7 V |
+| Threshold Voltage (Vth) | 0.36 V |
+
+---
+
+## 🔶 Power Constraint
+
+Total supply voltage:
+
+VDD − VSS = 0.9 − (−0.9) = **1.8 V**
+
+Power relation:
+
+P = (VDD − VSS) × Iss  
+
+So,
+
+1.8 × Iss ≤ 1.8 mW  
+
+Iss ≤ 1 mA  
+
+✔ Choose:
+
+Iss = **1 mA**
+
+---
+
+## 🔶 Drain Current Distribution
+
+Under balanced condition:
+
+Vin1 = Vin2  
+
+Current splits equally:
+
+| Quantity | Value |
+|---------|------|
+| ID1 | 0.5 mA |
+| ID2 | 0.5 mA |
+
+✔ Symmetrical operation achieved  
+
+---
+
+## 🔶 Bias Point (Initial Understanding)
+
+| Node | Value |
+|------|------|
+| Vin1 = Vin2 | 0 V |
+| Vs (tail node) | -0.7 V |
+
+---
+
+### 🔹 Gate-Source Voltage
+
+Vgs = Vg − Vs  
+
+Vgs = 0 − (−0.7)  
+
+Vgs = **0.7 V**
+
+---
+
+### 🔹 Overdrive Voltage
+
+Vov = Vgs − Vth  
+
+Vov = 0.7 − 0.36  
+
+Vov = **0.34 V**
+
+---
+
+✔ This ensures transistors operate in saturation region  
+
+---
+## Bias Completion
+
+### NMOS (M1, M2)
+
+| Parameter | Value |
+|----------|------|
+| Vd | 0 V |
+| Vs | -0.7 V |
+| Vds | 0.7 V |
+| Vov | 0.34 V |
+
+Condition:  
+Vds ≥ Vov → 0.7 ≥ 0.34 ✔  
+
+✔ M1, M2 operate in saturation  
+
+---
+
+### NMOS Tail Current Source (M5)
+
+| Node | Value |
+|------|------|
+| Vs | -0.9 V |
+| Vd | -0.7 V |
+
+Vds = Vd − Vs = -0.7 − (-0.9) = **0.2 V**
+
+To keep M5 in saturation:
+
+Vds ≥ Vov  
+
+Choose:
+
+Vov ≈ **0.2 V**
+
+---
+
+#### Gate Voltage
+
+Vgs = Vth + Vov  
+Vgs = 0.36 + 0.2 = **0.56 V**
+
+Vg = Vs + Vgs  
+Vg = -0.9 + 0.56 = **-0.34 V**
+
+✔ M5 operates at edge of saturation and sets tail current  
+
+---
+
+### PMOS Load (M3, M4)
+
+| Parameter | Value |
+|----------|------|
+| Vs | 0.9 V |
+| Vd | 0 V |
+| Vsd | 0.9 V |
+
+Condition:
+
+Vsd ≥ Vov  
+
+✔ 0.9 V is sufficient → PMOS in saturation  
+
+---
+
+### Final Bias Summary
+
+| Device | Region |
+|--------|-------|
+| M1, M2 | Saturation |
+| M3, M4 | Saturation |
+| M5 | Saturation (edge) |
+
+✔ Proper differential operation achieved  
+
+---
+
+## Width Calculation
+
+General equation:
+
+ID = (1/2) μCox (W/L) (Vov)²  
+
+Rearranged:
+
+W = (2 ID L) / (μCox (Vov)²)
+
+---
+
+### NMOS (M1, M2)
+
+| Parameter | Value |
+|----------|------|
+| ID | 0.5 mA |
+| Vov | 0.34 V |
+| L | 480 nm |
+
+Calculated:
+
+W ≈ **17.6 µm**
+
+---
+
+### NMOS (M5)
+
+| Parameter | Value |
+|----------|------|
+| ID | 1 mA |
+| Vov | 0.2 V |
+| L | 480 nm |
+
+Calculated:
+
+W ≈ **101.5 µm**
+
+---
+
+### Width Tuning (From Simulation)
+
+Due to non-ideal effects, widths are adjusted:
+
+| Transistor | Initial | Final |
+|-----------|--------|------|
+| M1, M2 | 17.6 µm | ~29.8 µm |
+| M5 | 101.5 µm | ~195 µm |
+
+---
+
+### Reason for Adjustment
+
+- Channel length modulation  
+- Mobility variation  
+- Model inaccuracies  
+- Exact bias matching requirement  
+
+✔ Final values ensure correct tail current and node voltage
+## DC Analysis
+
+![DC Output](your_dc_image_here.png)
+
+The operating point verifies that all node voltages and currents are close to the designed values.  
+The tail current splits almost equally, confirming proper biasing of the differential pair.
+
+✔ Both NMOS and PMOS transistors operate in saturation  
+
+---
+
+## Input Common Mode Range (ICMR)
+
+ICMR defines the range of input voltage for which the circuit functions correctly.
+
+### Minimum Input Voltage
+
+Condition:
+Vgs ≥ Vt  
+
+Vgs = Vicm − Vs  
+
+So,
+
+Vicm(min) = Vs + Vt  
+
+| Parameter | Value |
+|----------|------|
+| Vs | -0.7 V |
+| Vt | 0.36 V |
+
+Vicm(min) = **-0.34 V**
+
+---
+
+### Maximum Input Voltage
+
+To keep PMOS active load in saturation:
+
+Vsd ≥ Vov  
+
+After simplification:
+
+Vicm(max) ≈ Vd + |Vtp|
+
+| Parameter | Value |
+|----------|------|
+| Vd | ~0 V |
+| |Vtp| | ~0.39 V |
+
+Vicm(max) = **0.39 V**
+
+---
+
+### Final ICMR
+
+| Range |
+|------|
+| **-0.34 V ≤ Vicm ≤ 0.39 V** |
+
+---
+
+## Output Common Mode Range (OCMR)
+
+### Minimum Output Voltage
+
+Condition for NMOS saturation:
+
+Vds ≥ Vov  
+
+Vout(min) ≥ Vs + Vov  
+
+| Parameter | Value |
+|----------|------|
+| Vs | -0.7 V |
+| Vov | 0.34 V |
+
+Vout(min) = **-0.36 V**
+
+---
+
+### Maximum Output Voltage
+
+Condition for PMOS:
+
+Vsd ≥ Vov  
+
+Vout(max) ≤ VDD − Vov  
+
+| Parameter | Value |
+|----------|------|
+| VDD | 0.9 V |
+| Vov(p) | 0.25 V |
+
+Vout(max) = **0.65 V**
+
+---
+
+### Final OCMR
+
+| Range |
+|------|
+| **-0.36 V ≤ Vout ≤ 0.65 V** |
+
+---
+
+## Differential Input Range (Linear Region)
+
+For linear operation:
+
+|Vid| ≤ 2Vov  
+
+| Parameter | Value |
+|----------|------|
+| Vov | 0.25 V |
+
+Vid(max) = **0.5 V**
+
+---
+
+### Final Range
+
+| Range |
+|------|
+| **-0.5 V ≤ Vid ≤ 0.5 V** |
+
+---
+
+## Transient Analysis
+
+### Linearity Condition
+
+|Vid| < √2 · Vov  
+
+| Parameter | Value |
+|----------|------|
+| Vov | 0.24 V |
+
+√2 · Vov ≈ **0.34 V**
+
+---
+
+### Case 1: Linear Region
+
+Input applied:
+
+Vid = 100 mV (< 0.34 V)
+
+![Linear Output](your_linear_waveform.png)
+
+✔ Output is clean and sinusoidal  
+✔ Both branches conduct equally  
+✔ Amplifier behaves linearly  
+
+---
+
+### Case 2: Non-Linear Region
+
+Input applied:
+
+Vid = 600 mV (> 0.34 V)
+
+![Nonlinear Output](your_nonlinear_waveform.png)
+
+✔ Output shows distortion  
+✔ One transistor turns OFF  
+✔ Current shifts to one side  
+
+---
+
+## Comparison
+
+| Parameter | Linear | Non-Linear |
+|----------|--------|-----------|
+| Input | Small | Large |
+| Output | Smooth | Distorted |
+| Gain | Constant | Reduced |
+| Operation | Balanced | Unbalanced |
+
+---
+## Interpretation
+
+For small differential inputs, both NMOS transistors conduct simultaneously and the tail current is shared almost equally between the two branches. This results in a proportional and linear output.
+
+As the input difference increases, the current distribution becomes uneven. One transistor starts dominating while the other approaches cutoff, leading to distortion in the output waveform.
+
+---
+
+## Simulated Gain
+
+### Input Conditions
+
+| Parameter | Value |
+|----------|------|
+| Signal Type | Sine |
+| Frequency | 1 kHz |
+| Differential Amplitude | 50 mV |
+| DC Offset | 0 V |
+
+---
+
+### Measured Values
+
+| Quantity | Value |
+|---------|------|
+| Vin(p-p) | 100 mV |
+| Vout(p-p) | ≈ 180 mV |
+
+---
+
+### Gain Calculation
+
+Av = Vout / Vin  
+
+Av ≈ 180m / 100m  
+
+Av ≈ **1.8**
+
+---
+
+### Gain in dB
+
+Av(dB) = 20 log(1.8)  
+
+Av(dB) ≈ **5.1 dB**
+
+---
+
+## Theoretical Gain
+
+### Output Resistance
+
+ro = 1 / (λ Id)
+
+| Parameter | Value |
+|----------|------|
+| λ | 0.1 V⁻¹ |
+| Id | 0.5 mA |
+
+ro ≈ 20 kΩ  
+
+Effective resistance:
+
+ro_eff ≈ ro || ro ≈ **10 kΩ**
+
+---
+
+### Transconductance
+
+gm = 2Id / Vov  
+
+| Parameter | Value |
+|----------|------|
+| Id | 0.5 mA |
+| Vov | ≈ 0.25 V |
+
+gm ≈ **4 mS**
+
+---
+
+### Gain
+
+Av = gm × Rout  
+
+Av ≈ 4 × 10⁻³ × 10 × 10³  
+
+Av ≈ **40**
+
+---
+
+### Gain in dB
+
+Av(dB) ≈ **32 dB**
+
+---
+
+## Reason for Difference (Theory vs Simulation)
+
+The difference between theoretical and simulated gain is expected due to practical device behavior.
+
+- Channel length modulation reduces output resistance  
+- Active load is not perfectly ideal  
+- Mobility degradation lowers gm  
+- Tail current source is non-ideal  
+- Parasitic capacitances affect signal behavior  
+- Measurement from waveform introduces small errors  
+
+👉 Hence, simulated gain is lower than theoretical value.
+
+---
+
+## AC Analysis
+
+![AC Response](your_ac_plot.png)
+
+The frequency response shows a flat region at mid frequencies followed by a roll-off at higher frequencies.
+
+---
+
+### Midband Gain
+
+Av ≈ **5 dB**
+
+---
+
+### Cutoff Frequencies
+
+| Parameter | Value |
+|----------|------|
+| Lower cutoff (fL) | ~0 Hz |
+| Upper cutoff (fH) | ≈ 2.2 GHz |
+
+---
+
+### Bandwidth
+
+BW = fH − fL  
+
+BW ≈ **2.2 GHz**
+
+---
+
+## Key Observation
+
+- Gain remains constant in midband region  
+- At higher frequencies, gain decreases due to parasitic effects  
+- Active load introduces additional poles in response  
+
+---
+
+## Inference
+
+The differential amplifier with PMOS active load and NMOS current source was successfully designed and analyzed.
+
+✔ Power constraint is satisfied  
+✔ Proper biasing ensures all transistors operate in saturation  
+✔ Tail current splits equally under balanced input  
+✔ Linear amplification is achieved for small signals  
+
+However:
+
+- Simulated gain is lower than theoretical due to non-ideal effects  
+- Active load and current source introduce finite resistance  
+- At larger inputs, distortion appears due to current steering  
+
+👉 Overall, the circuit demonstrates correct operation with expected practical limitations.
+
+
+
