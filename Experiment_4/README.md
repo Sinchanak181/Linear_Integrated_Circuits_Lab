@@ -1052,31 +1052,21 @@ As the input difference increases, the current distribution becomes uneven. One 
 | DC Offset | 0 V |
 
 ---
-
-### Measured Values
+## Measured Gain (Transient Analysis)
 
 | Quantity | Value |
-|---------|------|
-| Vin(p-p) | 100 mV |
-| Vout(p-p) | ≈ 180 mV |
-
----
+|----------|------|
+| Vin (p-p) | 100 mV |
+| Vout (p-p) | ≈ 180 mV |
 
 ### Gain Calculation
 
 Av = Vout / Vin  
-
-Av ≈ 180m / 100m  
-
-Av ≈ **1.8**
-
----
+Av ≈ 180m / 100m = 1.8  
 
 ### Gain in dB
 
-Av(dB) = 20 log(1.8)  
-
-Av(dB) ≈ **5.1 dB**
+Av(dB) = 20 log(1.8) ≈ 5.1 dB  
 
 ---
 
@@ -1093,9 +1083,8 @@ ro = 1 / (λ Id)
 
 ro ≈ 20 kΩ  
 
-Effective resistance:
-
-ro_eff ≈ ro || ro ≈ **10 kΩ**
+Effective resistance:  
+ro_eff ≈ ro || ro = 10 kΩ  
 
 ---
 
@@ -1108,96 +1097,65 @@ gm = 2Id / Vov
 | Id | 0.5 mA |
 | Vov | ≈ 0.25 V |
 
-gm ≈ **4 mS**
+gm ≈ 4 mS  
 
 ---
 
-### Gain
+### Theoretical Gain
 
 Av = gm × Rout  
+Av ≈ 4 mS × 10 kΩ ≈ 40  
 
-Av ≈ 4 × 10⁻³ × 10 × 10³  
-
-Av ≈ **40**
-
----
-
-### Gain in dB
-
-Av(dB) ≈ **32 dB**
+Av(dB) ≈ 32 dB  
 
 ---
 
 ## Reason for Difference (Theory vs Simulation)
 
-The difference between theoretical and simulated gain is expected due to practical device behavior.
+The simulated gain is lower than theoretical due to:
 
-- Channel length modulation reduces output resistance  
-- Active load is not perfectly ideal  
-- Mobility degradation lowers gm  
-- Tail current source is non-ideal  
-- Parasitic capacitances affect signal behavior  
-- Measurement from waveform introduces small errors  
-
-👉 Hence, simulated gain is lower than theoretical value.
+- Channel length modulation  
+- Non-ideal current source  
+- Finite output resistance  
+- Mobility degradation  
+- Parasitic capacitances  
 
 ---
 
 ## AC Analysis
 
-![AC Response](your_ac_plot.png)
+### Input Conditions
 
-The frequency response shows a flat region at mid frequencies followed by a roll-off at higher frequencies.
+- Vin1 = +0.5 AC  
+- Vin2 = -0.5 AC  
+- Frequency sweep: 1 Hz to 1 GHz  
 
----
+### Output
 
-### Midband Gain
+Differential output:  
+Vout = V(out1) − V(out2)
 
-Av ≈ **5 dB**
+### Results
 
----
-
-### Cutoff Frequencies
-
-| Parameter | Value |
-|----------|------|
-| Lower cutoff (fL) | ~0 Hz |
-| Upper cutoff (fH) | ≈ 2.2 GHz |
+- Midband gain ≈ **5.4 dB**
+- Gain decreases at high frequency  
+- Bandwidth is in hundreds of MHz  
 
 ---
 
-### Bandwidth
+## Observation
 
-BW = fH − fL  
-
-BW ≈ **2.2 GHz**
-
----
-
-## Key Observation
-
-- Gain remains constant in midband region  
-- At higher frequencies, gain decreases due to parasitic effects  
-- Active load introduces additional poles in response  
+- Gain is constant in midband region  
+- Roll-off occurs at high frequency  
+- Circuit behaves as low-pass system  
 
 ---
 
 ## Inference
 
-The differential amplifier with PMOS active load and NMOS current source was successfully designed and analyzed.
+- Differential amplifier works correctly  
+- Proper biasing achieved  
+- Linear amplification for small signals  
+- Practical gain < theoretical due to non-ideal effects  
 
-✔ Power constraint is satisfied  
-✔ Proper biasing ensures all transistors operate in saturation  
-✔ Tail current splits equally under balanced input  
-✔ Linear amplification is achieved for small signals  
-
-However:
-
-- Simulated gain is lower than theoretical due to non-ideal effects  
-- Active load and current source introduce finite resistance  
-- At larger inputs, distortion appears due to current steering  
-
-👉 Overall, the circuit demonstrates correct operation with expected practical limitations.
-
-
-
+✔ Design satisfies given specifications
